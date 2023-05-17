@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+
+// ---------------------------------------------------------------------
+// Some basic types that are used in the messages
+
+message Point_2d {
+  sint64 x = 1;
+  sint64 y = 2;
+}
+
+message Polygon {
+  repeated Point_2d path = 1;
+}
+
+message Polygons {
+  repeated Polygon paths = 1;
+}

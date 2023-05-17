@@ -22,37 +22,3 @@ message PluginResponse {
   string plugin_hash = 1;
   string version = 2;
 }
-
-
-// ---------------------------------------------------------------------
-// The SIMPLIFY slot service
-
-service Simplify {
-  rpc Simplify(SimplifyRequest) returns (SimplifyResponse) {}
-}
-
-message SimplifyRequest {
-  Polygons polygons = 1;
-  uint64 max_resolution = 2;
-  uint64 max_deviation = 3;
-  uint64 max_area_deviation = 4;
-}
-
-message SimplifyResponse {
-  Polygons polygons = 1;
-}
-
-// ---------------------------------------------------------------------
-// The POSTPROCESS slot service
-
-service Postprocess {
-  rpc Postprocess(PostprocessRequest) returns (PostprocessResponse) {}
-}
-
-message PostprocessRequest {
-  string gcode_word = 1;
-}
-
-message PostprocessResponse {
-  string gcode_word = 1;
-}

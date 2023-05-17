@@ -1,0 +1,28 @@
+[package]
+name = "curaengine_grpc_defintions"
+version = "0.0.1"
+authors = ["Casper <casper.lamboo@ultimaker.com>"]
+description = "CuraEngine gRPC definitions"
+repository = "https://github.com/Ultimaker/curaengine_grpc_defintions"
+readme = "README.md"
+license = "MIT"
+edition = "2021"
+build = "rs/build.rs"
+
+
+[lib]
+name="curaengine_grpc_defintions"
+path = "rs/lib.rs"
+crate-type = ["lib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.9.2"
+prost = "0.11.9"
+
+[build-dependencies]
+tonic-build = "0.9.2"
+
+[dev-dependencies]
+tokio = { version = "1.28.1", features = ["macros", "rt-multi-thread"] }

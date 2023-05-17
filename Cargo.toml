@@ -15,11 +15,6 @@ name="curaengine_grpc_defintions"
 path = "rs/lib.rs"
 crate-type = ["lib"]
 
-[[example]]
-name = "server"
-crate-type = ["bin"]
-path = "rs/examples/server.rs"
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

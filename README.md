@@ -28,9 +28,6 @@ The gRPC definitions are available for the following languages:
   cargo add --git https://github.com/Ultimaker/curaengine_grpc_defintions.git
   ```
 </details>
-<details>
-  <summary>Conan</summary>
-</details>
 
 ## License
 

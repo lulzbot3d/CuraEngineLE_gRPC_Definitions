@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+
+import "layers.proto";
+
+// ---------------------------------------------------------------------
+// The WallToolPaths slot service
+// 
+// This service is used to generate the tool paths for the walls of the
+// model. The walls are the outermost perimeters of the model.
+//   request:
+//      version: the version of the protocol
+//      outlines: the outlines of the model
+//   respons:
+//      wall_tool_paths: the tool paths for the walls
+// ---------------------------------------------------------------------
+
+service WallToolPaths {
+    rpc WallToolPaths(WallToolPathsRequest) returns (WallToolPathsResponse) {}
+}
+
+message WallToolPathsRequest {
+    string version = 1;
+    LayersPolygons outlines = 2;
+}
+
+message WallToolPathsResponse {
+    LayersToolPaths tool_paths = 1;
+}

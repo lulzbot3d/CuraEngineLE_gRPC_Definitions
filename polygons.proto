@@ -5,15 +5,49 @@ package cura.plugins.proto;
 // ---------------------------------------------------------------------
 // Some basic types that are used in the messages
 
-message Point_2d {
+message Point2D {
   sint64 x = 1;
   sint64 y = 2;
 }
 
+message OpenPath {
+  repeated Point2D path = 1;
+}
+
+message ClosedPath {
+  repeated Point2D path = 1;
+}
+
+message FilledPath {
+  repeated Point2D path = 1;
+}
+
 message Polygon {
-  repeated Point_2d path = 1;
+  FilledPath outline = 1;
+  repeated FilledPath holes = 2;
 }
 
 message Polygons {
-  repeated Polygon paths = 1;
+  repeated Polygon polygons = 1;
+}
+
+message PolyTreeRoot {
+  repeated FilledPolyTreeNode polygons = 1;
+  repeated ClosedPolyTreeNode closed_paths = 2;
+  repeated OpenPath open_paths = 3;
+}
+
+message FilledPolyTreeNode {
+  FilledPath outline = 1;
+  repeated HolePolyTreeNode holes = 2;
+}
+
+message HolePolyTreeNode {
+  FilledPath outline = 1;
+  PolyTreeRoot children = 2;
+}
+
+message ClosedPolyTreeNode {
+  OpenPath outline = 1;
+  PolyTreeRoot children = 2;
 }

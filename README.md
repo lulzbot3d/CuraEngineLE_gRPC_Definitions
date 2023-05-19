@@ -10,7 +10,55 @@ The gRPC definitions are available for the following languages:
 <details>
   <summary>Conan</summary>
 
-  TODO
+  Usage in `conanfile.py`
+  ```python
+  class CuraEnginePluginConan(ConanFile):
+      ...
+  
+      def requirements(self):
+        self.requires("asio-grpc/2.4.0")
+        self.requires("curaengine_grpc_definitions/(latest)@ultimaker/testing")
+        ...
+  
+      def generate(self):
+        tc = CMakeToolchain(self)
+        cpp_info = self.dependencies["curaengine_grpc_definitions"].cpp_info
+        tc.variables["GRPC_PROTOS"] = ";".join([str(p) for p in Path(cpp_info.resdirs[0]).glob("*.proto")])
+        tc.generate()
+  
+      ...  
+  ```
+  
+  
+  Usage in `CMakeLists.txt`
+  ```cmake
+  ...
+  find_package(asio-grpc REQUIRED)
+  
+  asio_grpc_protobuf_generate(
+        GENERATE_GRPC GENERATE_MOCK_CODE
+        OUT_VAR "ASIO_GRPC_PLUGIN_PROTO_SOURCES"
+        OUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated"
+        PROTOS "${GRPC_PROTOS}"
+  
+  add_executable(engine_plugin_target_name ${PROTO_SRCS} ${ASIO_GRPC_PLUGIN_PROTO_SOURCES} main.cpp ...)
+
+  target_include_directories(engine_plugin_target_name
+          PUBLIC
+          ...
+          PRIVATE
+          ${CMAKE_CURRENT_BINARY_DIR}/generated
+          )
+
+  target_link_libraries(simplify_boost_plugin PUBLIC asio-grpc::asio-grpc ...)
+  ...
+  ```
+  
+  See: https://github.com/Ultimaker/Cura/wiki/Running-Cura-from-Source#1-configure-conan how to configure Conan
+  
+  ```bash
+  conan install . --build=missing --update
+  ```
 </details>
 
 <details>

@@ -64,7 +64,18 @@ The gRPC definitions are available for the following languages:
 <details>
   <summary>Python</summary>
 
-  TODO
+ ```bash
+ pip install git+https://github.com/Ultimaker/CuraEngine_grpc_defintions.git  
+ ```
+
+```python
+import grpc
+
+from CuraEngineGRPC.cura_pb2_grpc import CuraStub
+import CuraEngineGRPC.cura_pb2 as cura_pb
+
+....
+```
 </details>
 
 <details>

@@ -20,7 +20,7 @@ service Comb {
 }
 
 message CombRequest {
-    string version = 1;
+    string slot_version = 1;
     Point2D source = 2;
     Point2D target = 3;
     ToolPaths printed_tool_paths = 4;

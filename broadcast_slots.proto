@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package cura.plugins.proto;
 import "google/protobuf/empty.proto";
-import "settings.proto";
 import "mesh.proto";
 import "layers.proto";
 
@@ -15,8 +14,8 @@ service BroadcastSettings {
 }
 
 message SettingsRequest {
-    string version = 1;
-    Settings settings = 2;
+    string slot_version = 1;
+    map<string, bytes> settings = 2;
 }
 
 // ------------------------------------------
@@ -28,7 +27,7 @@ service BroadcastMeshes {
 }
 
 message BroadcastMeshRequest {
-    string version = 1;
+    string slot_version = 1;
     map<ModelId, Mesh> meshes = 2;
 }
 
@@ -41,7 +40,7 @@ service BroadcastSlices {
 }
 
 message BroadcastSlicesRequest {
-    string version = 1;
+    string slot_version = 1;
     LayersMapUint32Polygons slices = 2;
 }
 
@@ -54,6 +53,6 @@ service BroadcastDisallowedAreas {
 }
 
 message BroadcastDisallowedAreasRequest {
-    string version = 1;
+    string slot_version = 1;
     LayersMapUint32Polygons slices = 2;
 }

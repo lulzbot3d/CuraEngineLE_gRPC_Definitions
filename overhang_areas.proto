@@ -17,7 +17,7 @@ service OverhangAreas {
 }
 
 message OverhangAreasRequest {
-    string version = 1;
+    string slot_version = 1;
 }
 
 message OverhangAreasResponse {

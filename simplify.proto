@@ -11,10 +11,11 @@ service Simplify {
 }
 
 message SimplifyRequest {
-  Polygons polygons = 1;
-  uint64 max_resolution = 2;
-  uint64 max_deviation = 3;
-  uint64 max_area_deviation = 4;
+  string slot_version = 1;
+  Polygons polygons = 2;
+  uint64 max_resolution = 3;
+  uint64 max_deviation = 4;
+  uint64 max_area_deviation = 5;
 }
 
 message SimplifyResponse {

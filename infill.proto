@@ -20,7 +20,7 @@ service Infill {
 }
 
 message InfillRequest {
-    string version = 1;
+    string slot_version = 1;
     LayersPolygons infill_areas = 2;
 }
 

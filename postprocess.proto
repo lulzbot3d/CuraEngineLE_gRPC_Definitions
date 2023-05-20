@@ -10,7 +10,8 @@ service Postprocess {
 }
 
 message PostprocessRequest {
-  string gcode_word = 1;
+  string slot_version = 1;
+  string gcode_word = 2;
 }
 
 message PostprocessResponse {

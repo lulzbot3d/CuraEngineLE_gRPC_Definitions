@@ -6,6 +6,7 @@ import "slot_id.proto";
 import "mesh.proto";
 import "plugin.proto";
 
+// Cura broadcast service
 service Cura {
   rpc EnginePlugins(BroadcastEnginePlugin) returns (google.protobuf.Empty) {}
   rpc Slice(BroadcastSlice) returns (google.protobuf.Empty) {}

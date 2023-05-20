@@ -49,6 +49,7 @@ setup(
     author_email="cura@ultimaker.com",
     packages=["CuraEngineGRPC"],
     package_dir = {'': 'autogen'},
+    package_data = {"CuraEngineGRPC": ["*.pyi"]},
     install_requires=["grpcio-tools"],
     cmdclass={
         "build_py": CustomBuildCommand,

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+
+import "layers.proto";
+
+// ---------------------------------------------------------------------
+// The Infill slot service
+// 
+// This service is used to generate the infill of the model
+//   request:
+//      version: the version of the protocol
+//      infill_areas: the areas of the model that require infill
+//   respons:
+//      tool_paths: the infill of the model
+// ---------------------------------------------------------------------
+
+service Infill {
+    rpc Infill(InfillRequest) returns (InfillResponse) {}
+}
+
+message InfillRequest {
+    string version = 1;
+    LayersPolygons infill_areas = 2;
+}
+
+message InfillResponse {
+    LayersToolPaths tool_paths = 1;
+}

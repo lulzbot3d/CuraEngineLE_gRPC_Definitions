@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+
+// ---------------------------------------------------------------------
+// The PlatformAdhesion slot service
+// 
+// This service is used to generate the platform adhesion tool paths.
+//   request:
+//      version: the version of the protocol
+//      model_outlines: a map of model outlines, keyed by the model id
+//   respons:
+//      tool_paths: a map of tool paths, keyed by the model id
+// ---------------------------------------------------------------------
+
+service PlatformAdhesion {
+    rpc PlatformAdhesion(PlatformAdhesionRequest) returns (PlatformAdhesionResponse) {}
+}
+
+message PlatformAdhesionRequest {
+    string version = 1;
+    map<uint32, Polygons> model_outlines = 2;
+}
+
+message PlatformAdhesionResponse {
+    map<uint32, ToolPaths> tool_paths = 1;
+}

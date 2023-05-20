@@ -7,10 +7,17 @@ fn main() -> Result<()> {
         .build_client(false)
         .compile(
             &[
-                "plugin.proto",
-                "polygons.proto",
-                "postprocess.proto",
-                "simplify.proto",
+                "broadcast_slots.proto",
+                "comb.proto",
+                "infill.proto",
+                "layers.proto",
+                "overhang_areas.proto",
+                "platform_adhesion.proto",
+                "settings.proto",
+                "skin.proto",
+                "slice.proto",
+                "tool_paths.proto",
+                "wall_tool_paths.proto",
             ],
             &["./"],
         )?;

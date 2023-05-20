@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+
+import "tool_paths.proto";
+import "polygons.proto";
+
+// ---------------------------------------------------------------------
+// The Comb slot service
+// 
+// This service is used to determine the overhang areas of a model.
+//   request:
+//      version: the version of the protocol
+//   respons:
+//      overhang_areas: the areas of the model that require support
+// ---------------------------------------------------------------------
+
+service Comb {
+    rpc Comb(CombRequest) returns (CombResponse) {}
+}
+
+message CombRequest {
+    string version = 1;
+    Point2D source = 2;
+    Point2D target = 3;
+    ToolPaths printed_tool_paths = 4;
+}
+
+message CombResponse {
+    TravelPath travel = 1;
+}

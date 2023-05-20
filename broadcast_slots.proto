@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+import "google/protobuf/empty.proto";
+import "settings.proto";
+import "mesh.proto";
+import "layers.proto";
+
+// ------------------------------------------
+//
+// 
+
+service BroadcastSettings {
+    rpc BroadcastSettings(SettingsRequest) returns (google.protobuf.Empty) {}
+}
+
+message SettingsRequest {
+    string version = 1;
+    Settings settings = 2;
+}
+
+// ------------------------------------------
+//
+// 
+
+service BroadcastMeshes {
+    rpc BroadcastMesh(BroadcastMeshRequest) returns (google.protobuf.Empty) {}
+}
+
+message BroadcastMeshRequest {
+    string version = 1;
+    map<ModelId, Mesh> meshes = 2;
+}
+
+// ------------------------------------------
+//
+// 
+
+service BroadcastSlices {
+    rpc BroadcastSlices(BroadcastSlicesRequest) returns (google.protobuf.Empty) {}
+}
+
+message BroadcastSlicesRequest {
+    string version = 1;
+    LayersMapUint32Polygons slices = 2;
+}
+
+// ------------------------------------------
+//
+// 
+
+service BroadcastDisallowedAreas {
+    rpc BroadcastDisallowedAreas(BroadcastDisallowedAreasRequest) returns (google.protobuf.Empty) {}
+}
+
+message BroadcastDisallowedAreasRequest {
+    string version = 1;
+    LayersMapUint32Polygons slices = 2;
+}

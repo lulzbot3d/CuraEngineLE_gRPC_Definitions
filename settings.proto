@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+
+// TODO: add settings
+message Settings {
+
+}

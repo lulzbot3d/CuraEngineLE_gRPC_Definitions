@@ -7,8 +7,8 @@ import "mesh.proto";
 import "plugin.proto";
 
 service Cura {
-  rpc EnginePlugins(EnginePluginRequest) returns (google.protobuf.Empty) {}
-  rpc Slice(SliceRequest) returns (google.protobuf.Empty) {}
+  rpc EnginePlugins(BroadcastEnginePlugin) returns (google.protobuf.Empty) {}
+  rpc Slice(BroadcastSlice) returns (google.protobuf.Empty) {}
 }
 
 message EnginePluginInformation {
@@ -17,7 +17,7 @@ message EnginePluginInformation {
   optional uint32 port = 3;
 }
 
-message EnginePluginRequest {
+message BroadcastEnginePlugin {
   string slot_version = 1;
   repeated EnginePluginInformation engine_plugins = 2;
 }
@@ -47,7 +47,7 @@ message SettingExtruder {
   uint64 extruder = 2; //From which extruder stack the setting should inherit.
 }
 
-message SliceRequest {
+message BroadcastSlice {
   string slot_version = 1;
   repeated ObjectList object_lists = 2; // The meshgroups to be printed one after another
   map<string, bytes> global_settings = 3; // The global settings used for the whole print job

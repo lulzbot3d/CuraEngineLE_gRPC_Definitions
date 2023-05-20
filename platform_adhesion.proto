@@ -20,7 +20,7 @@ service PlatformAdhesion {
 }
 
 message PlatformAdhesionRequest {
-    string slot_version = 1;
+    string slot_version_range = 1;
     map<uint32, Polygons> model_outlines = 2;
 }
 

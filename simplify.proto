@@ -13,7 +13,7 @@ service Simplify {
 }
 
 message SimplifyRequest {
-  string slot_version = 1;
+  string slot_version_range = 1;
   Polygons polygons = 2;
   uint64 max_resolution = 3;
   uint64 max_deviation = 4;

@@ -12,7 +12,7 @@ service Postprocess {
 }
 
 message PostprocessRequest {
-  string slot_version = 1;
+  string slot_version_range = 1;
   string gcode_word = 2;
 }
 

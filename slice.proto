@@ -18,7 +18,7 @@ service Slice {
 }
 
 message SliceRequest {
-    string slot_version = 1;
+    string slot_version_range = 1;
 }
 
 message SliceResponse {

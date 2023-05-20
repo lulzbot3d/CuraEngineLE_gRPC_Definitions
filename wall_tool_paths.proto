@@ -20,7 +20,7 @@ service WallToolPaths {
 }
 
 message WallToolPathsRequest {
-    string slot_version = 1;
+    string slot_version_range = 1;
     LayersPolygons outlines = 2;
 }
 

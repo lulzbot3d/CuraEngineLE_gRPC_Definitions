@@ -18,7 +18,7 @@ service Skin {
 }
 
 message SkinRequest {
-    string slot_version = 1;
+    string slot_version_range = 1;
     LayersPolygons skin_areas = 2;
 }
 

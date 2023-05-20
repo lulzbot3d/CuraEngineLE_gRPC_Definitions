@@ -18,7 +18,7 @@ message EnginePluginInformation {
 }
 
 message BroadcastEnginePlugin {
-  string slot_version = 1;
+  string slot_version_range = 1;
   repeated EnginePluginInformation engine_plugins = 2;
 }
 
@@ -48,7 +48,7 @@ message SettingExtruder {
 }
 
 message BroadcastSlice {
-  string slot_version = 1;
+  string slot_version_range = 1;
   repeated ObjectList object_lists = 2; // The meshgroups to be printed one after another
   map<string, bytes> global_settings = 3; // The global settings used for the whole print job
   repeated Extruder extruders = 4; // The settings sent to each extruder object

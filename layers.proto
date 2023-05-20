@@ -3,7 +3,6 @@ syntax = "proto3";
 package cura.plugins.proto;
 
 import "google/protobuf/any.proto";
-
 import "polygons.proto";
 import "tool_paths.proto";
 

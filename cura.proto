@@ -4,7 +4,6 @@ package cura.plugins.proto;
 import "google/protobuf/empty.proto";
 import "slot_id.proto";
 import "mesh.proto";
-import "plugin.proto";
 
 // Cura broadcast service
 service Cura {

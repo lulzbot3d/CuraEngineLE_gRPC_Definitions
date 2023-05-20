@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package cura.plugins.proto;
+import "polygons.proto";
 
 // ---------------------------------------------------------------------
 // The OverhangAreas slot service

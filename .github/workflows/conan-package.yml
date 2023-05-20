@@ -14,15 +14,6 @@ on:
             - 'conanfile.py'
             - '.github/workflows/conan-package.yml'
             - '.github/workflows/requirements*.txt'
-        branches:
-            - main
-            - master
-            - 'CURA-*'
-            - '[0-9].[0-9]*'
-            - '*'
-        tags:
-            - '[1-9]+.[0-9]+.[0-9]*'
-            - '[1-9]+.[0-9]+.[0-9]'
 
 jobs:
     conan-recipe-version:

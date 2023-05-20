@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package cura.plugins.proto;
+import "google/protobuf/empty.proto";
+import "slot_id.proto";
+import "mesh.proto";
+import "plugin.proto";
+
+service Cura {
+  rpc EnginePlugins(EnginePluginRequest) returns (google.protobuf.Empty) {}
+  rpc Slice(SliceRequest) returns (google.protobuf.Empty) {}
+}
+
+message EnginePluginInformation {
+  SlotID id = 1;
+  optional string address = 2;
+  optional uint32 port = 3;
+}
+
+message EnginePluginRequest {
+  string slot_version = 1;
+  repeated EnginePluginInformation engine_plugins = 2;
+}
+
+message Object {
+  int64 id = 1;
+  string name = 2;
+  Mesh mesh = 3;
+  map<string, bytes> settings = 4;
+  optional bytes vertices = 5;  // TODO: remove once using the new Mesh message
+  optional bytes normals = 6;  // TODO: remove once using the new Mesh message
+  optional bytes indices = 7;  // TODO: remove once using the new Mesh message
+}
+
+message ObjectList {
+  repeated Object objects = 1;
+  map<string, bytes> settings = 2; // meshgroup settings (for one-at-a-time printing)
+}
+
+message Extruder {
+  uint64 id = 1;
+  map<string, bytes> settings = 2;
+}
+
+message SettingExtruder {
+  string name = 1; //The setting key.
+  uint64 extruder = 2; //From which extruder stack the setting should inherit.
+}
+
+message SliceRequest {
+  string slot_version = 1;
+  repeated ObjectList object_lists = 2; // The meshgroups to be printed one after another
+  map<string, bytes> global_settings = 3; // The global settings used for the whole print job
+  repeated Extruder extruders = 4; // The settings sent to each extruder object
+  repeated SettingExtruder limit_to_extruder = 5; // From which stack the setting would inherit if not defined per object
+}

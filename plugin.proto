@@ -5,9 +5,6 @@ import "slot_id.proto";
 
 // ---------------------------------------------------------------------
 // The handshake service [Required for all plugins]
-service Plugin {
-  rpc Identify(PluginRequest) returns (PluginResponse) {}
-}
 
 message PluginRequest {
   string slot_version = 1;

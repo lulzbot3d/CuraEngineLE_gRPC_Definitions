@@ -5,54 +5,35 @@ import "google/protobuf/empty.proto";
 import "mesh.proto";
 import "layers.proto";
 
-// ------------------------------------------
-//
-// 
-
-service BroadcastSettings {
-    rpc BroadcastSettings(SettingsRequest) returns (google.protobuf.Empty) {}
+service Broadcast {
+    rpc BroadcastSettings(BroadcastSettingsRequest) returns (google.protobuf.Empty) {}
+//    rpc BroadcastMesh(BroadcastMeshRequest) returns (google.protobuf.Empty) {}
+//    rpc BroadcastSlices(BroadcastSlicesRequest) returns (google.protobuf.Empty) {}
+//    rpc BroadcastDisallowedAreas(BroadcastDisallowedAreasRequest) returns (google.protobuf.Empty) {}
+    rpc BroadcastProgress(BroadcastProgressRequest) returns (google.protobuf.Empty) {}
 }
 
-message SettingsRequest {
+message BroadcastSettingsRequest {
     string slot_version = 1;
     map<string, bytes> settings = 2;
 }
 
-// ------------------------------------------
+//message BroadcastMeshRequest {
+//    string slot_version = 1;
+//    map<ModelId, Mesh> meshes = 2;
+//}
 //
-// 
-
-service BroadcastMeshes {
-    rpc BroadcastMesh(BroadcastMeshRequest) returns (google.protobuf.Empty) {}
-}
-
-message BroadcastMeshRequest {
-    string slot_version = 1;
-    map<ModelId, Mesh> meshes = 2;
-}
-
-// ------------------------------------------
+//message BroadcastSlicesRequest {
+//    string slot_version = 1;
+//    LayersMapUint32Polygons slices = 2;
+//}
 //
-// 
+//message BroadcastDisallowedAreasRequest {
+//    string slot_version = 1;
+//    LayersMapUint32Polygons slices = 2;
+//}
 
-service BroadcastSlices {
-    rpc BroadcastSlices(BroadcastSlicesRequest) returns (google.protobuf.Empty) {}
-}
-
-message BroadcastSlicesRequest {
+message BroadcastProgressRequest {
     string slot_version = 1;
-    LayersMapUint32Polygons slices = 2;
-}
-
-// ------------------------------------------
-//
-// 
-
-service BroadcastDisallowedAreas {
-    rpc BroadcastDisallowedAreas(BroadcastDisallowedAreasRequest) returns (google.protobuf.Empty) {}
-}
-
-message BroadcastDisallowedAreasRequest {
-    string slot_version = 1;
-    LayersMapUint32Polygons slices = 2;
+    float amount = 2;
 }

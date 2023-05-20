@@ -2,11 +2,13 @@ syntax = "proto3";
 
 package cura.plugins.proto;
 import "polygons.proto";
+import "plugin.proto";
 
 // ---------------------------------------------------------------------
 // The SIMPLIFY slot service
 
 service Simplify {
+  rpc Identify(PluginRequest) returns (PluginResponse) {}
   rpc Simplify(SimplifyRequest) returns (SimplifyResponse) {}
 }
 

@@ -1,27 +1,16 @@
 syntax = "proto3";
 
-package cura.plugins.proto;
+package cura.plugins.v1;
 import "layers.proto";
 
-// ---------------------------------------------------------------------
-// The Skin slot service
-// 
-// This service is used to determine the overhang areas of a model.
-//   request:
-//      version: the version of the protocol
-//   respons:
-//      overhang_areas: the areas of the model that require support
-// ---------------------------------------------------------------------
-
-service Skin {
-    rpc Skin(SkinRequest) returns (SkinResponse) {}
+service SkinService {
+    rpc Modify(SkinServiceModifyRequest) returns (SkinServiceModifyResponse) {}
 }
 
-message SkinRequest {
-    string slot_version_range = 1;
-    LayersPolygons skin_areas = 2;
+message SkinServiceModifyRequest {
+    LayersPolygons skin_areas = 1;
 }
 
-message SkinResponse {
+message SkinServiceModifyResponse {
     LayersToolPaths skin = 1;
 }

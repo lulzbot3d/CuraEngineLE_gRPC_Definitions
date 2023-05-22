@@ -1,23 +1,22 @@
 syntax = "proto3";
 
-package cura.plugins.proto;
+package cura.plugins.v1;
+
 import "polygons.proto";
 
-// TODO
-// TravelPath should also support hops, and retracts
 message TravelPath {
-    repeated Point2D points = 1;
+  repeated Point2D points = 1;
 }
 
 message ExtrusionJunction {
-    Point2D point = 1;
-    uint32 width = 2;
+  Point2D point = 1;
+  uint32 width = 2;
 }
 
 message LineJunctions {
-    repeated ExtrusionJunction junctions = 1;
+  repeated ExtrusionJunction junctions = 1;
 }
 
 message ToolPaths {
-    repeated LineJunctions tool_paths = 1;
+  repeated LineJunctions tool_paths = 1;
 }

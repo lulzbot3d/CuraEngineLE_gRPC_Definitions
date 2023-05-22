@@ -1,26 +1,17 @@
 syntax = "proto3";
 
-package cura.plugins.proto;
+package cura.plugins.v1;
+
 import "polygons.proto";
 
-// ---------------------------------------------------------------------
-// The Slice slot service
-// 
-// This service is used to slice a model into polygons
-//   request:
-//      version: the version of the protocol
-//   respons:
-//      outlines: a map of outlines, keyed by the model id
-// ---------------------------------------------------------------------
-
-service Slice {
-    rpc Slice(SliceRequest) returns (SliceResponse) {}
+service SliceService {
+  rpc Modify(SliceServiceModifyRequest) returns (SliceResponse) {}
 }
 
-message SliceRequest {
-    string slot_version_range = 1;
+message SliceServiceModifyRequest {
+  map<uint32, PolyTreeRoot> outlines = 1;
 }
 
 message SliceResponse {
-    map<uint32, PolyTreeRoot> outlines = 1;
+  map<uint32, PolyTreeRoot> outlines = 1;
 }

@@ -1,26 +1,17 @@
 syntax = "proto3";
 
-package cura.plugins.proto;
+package cura.plugins.v1;
+
 import "polygons.proto";
 
-// ---------------------------------------------------------------------
-// The OverhangAreas slot service
-// 
-// This service is used to determine the overhang areas of a model.
-//   request:
-//      version: the version of the protocol
-//   respons:
-//      overhang_areas: the areas of the model that require support
-// ---------------------------------------------------------------------
-
-service OverhangAreas {
-    rpc OverhangAreas(OverhangAreasRequest) returns (OverhangAreasResponse) {}
+service OverhangAreasService {
+  rpc Modify(OverhangAreasServiceModifyRequest) returns (OverhangAreasServiceModifyResponse) {}
 }
 
-message OverhangAreasRequest {
-    string slot_version_range = 1;
+message OverhangAreasServiceModifyRequest {
+  string slot_version_range = 1;
 }
 
-message OverhangAreasResponse {
-    map<uint32, Polygons> overhang_areas = 1;
+message OverhangAreasServiceModifyResponse {
+  map<uint32, Polygons> overhang_areas = 1;
 }

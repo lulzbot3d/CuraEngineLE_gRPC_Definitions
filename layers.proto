@@ -1,104 +1,57 @@
 syntax = "proto3";
 
-package cura.plugins.proto;
+package cura.plugins.v1;
 
 import "google/protobuf/any.proto";
 import "polygons.proto";
 import "tool_paths.proto";
 
-// ------------------------------------------------------------------
-
 message Layers {
-    repeated Layer layers = 1;
+  repeated Layer layers = 1;
 }
 
 message Layer {
-    uint32 layer_height = 1;
-    uint32 layer_z = 2;
-    google.protobuf.Any data = 3;
+  uint32 layer_height = 1;
+  uint32 layer_z = 2;
+  google.protobuf.Any data = 3;
 }
 
-// ------------------------------------------------------------------
-// Layers are a container type for slices of different types.
-//
-// Since protobuf does not support template types, we have to
-// manually write messages for each type specialization.
-// 
-// Ideally, we would have a single message like this:
-// ```
-// message Layers<T> {
-//     repeated Layer<T> layers = 1;
-// }
-//
-// message Layer<T> {
-//     uint32 layer_height = 1;
-//     uint32 layer_z = 2;
-//     T data = 3;
-// ```
-//
-// Each specialization would be generated from the same template
-// with a different type parameter.
-//
-// For example, the specialization for `Layers<PolyTreeRoot>` would
-// automatically generate the following messages:
-// ```
-// message LayersPolyTree {
-//     repeated LayerPolyTree layers = 1;
-// }
-//
-// message LayerPolyTree {
-//     uint32 layer_height = 1;
-//     uint32 layer_z = 2;
-//     PolyTreeRoot data = 3;
-// ```
-// This would allow us to use the same code for all types of layers.
-// Unfortunately, this is not possible in protobuf.
-
-// ------------------------------------------------------------------
-
 message LayersPolyTree {
-    repeated LayerPolyTree layers = 1;
+  repeated LayerPolyTree layers = 1;
 }
 
 message LayerPolyTree {
-    uint32 layer_height = 1;
-    uint32 layer_z = 2;
-    PolyTreeRoot data = 3;
+  uint32 layer_height = 1;
+  uint32 layer_z = 2;
+  PolyTreeRoot data = 3;
 }
 
-
-// ------------------------------------------------------------------
-
 message LayersPolygons {
-    repeated LayerPolygons layers = 1;
+  repeated LayerPolygons layers = 1;
 }
 
 message LayerPolygons {
-    uint32 layer_height = 1;
-    uint32 layer_z = 2;
-    Polygons data = 3;
+  uint32 layer_height = 1;
+  uint32 layer_z = 2;
+  Polygons data = 3;
 }
 
-// ------------------------------------------------------------------
-
 message LayersToolPaths {
-    repeated LayerToolPaths layers = 1;
+  repeated LayerToolPaths layers = 1;
 }
 
 message LayerToolPaths {
-    uint32 layer_height = 1;
-    uint32 layer_z = 2;
-    ToolPaths data = 3;
+  uint32 layer_height = 1;
+  uint32 layer_z = 2;
+  ToolPaths data = 3;
 }
 
-// ------------------------------------------------------------------
-
 message LayersMapUint32Polygons {
-    repeated LayerMapUint32Polygons layers = 1;
+  repeated LayerMapUint32Polygons layers = 1;
 }
 
 message LayerMapUint32Polygons {
-    uint32 layer_height = 1;
-    uint32 layer_z = 2;
-    map<uint32, Polygons> data = 3;
+  uint32 layer_height = 1;
+  uint32 layer_z = 2;
+  map<uint32, Polygons> data = 3;
 }

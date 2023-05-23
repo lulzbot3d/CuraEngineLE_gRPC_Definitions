@@ -3,8 +3,8 @@ breaking:
   use:
     - FILE
 lint:
-  use:
-    - DEFAULT
-  except:
-    - RPC_REQUEST_RESPONSE_UNIQUE
-  allow_comment_ignores: true
+    use:
+        - DEFAULT
+    except:
+        - RPC_REQUEST_RESPONSE_UNIQUE
+    allow_comment_ignores: true

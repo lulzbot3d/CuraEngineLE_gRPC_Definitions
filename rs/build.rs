@@ -11,7 +11,7 @@ fn main() -> Result<()> {
                 "cura/plugins/comb/v1/comb.proto",
                 "cura/plugins/infill/v1/infill.proto",
                 "cura/plugins/platform_adhesion/v1/platform_adhesion.proto",
-                "cura/plugins/postprocessing/v1/postprocess.proto",
+                "cura/plugins/postprocess/v1/postprocess.proto",
                 "cura/plugins/simplify/v1/simplify.proto",
                 "cura/plugins/skin/v1/skin.proto",
                 "cura/plugins/slice/v1/slice.proto",

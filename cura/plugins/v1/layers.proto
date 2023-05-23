@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package cura.plugins.v1;
 
-import "google/protobuf/any.proto";
-import "polygons.proto";
-import "tool_paths.proto";
+// import "google/protobuf/any.proto";
+import "cura/plugins/v1/polygons.proto";
+import "cura/plugins/v1/toolpaths.proto";
 
 message Layers {
   repeated Layer layers = 1;
@@ -13,7 +13,7 @@ message Layers {
 message Layer {
   uint32 layer_height = 1;
   uint32 layer_z = 2;
-  google.protobuf.Any data = 3;
+  // google.protobuf.Any data = 3;
 }
 
 message LayersPolyTree {
@@ -36,14 +36,14 @@ message LayerPolygons {
   Polygons data = 3;
 }
 
-message LayersToolPaths {
+message LayersToolpaths {
   repeated LayerToolPaths layers = 1;
 }
 
 message LayerToolPaths {
   uint32 layer_height = 1;
   uint32 layer_z = 2;
-  ToolPaths data = 3;
+  Toolpaths data = 3;
 }
 
 message LayersMapUint32Polygons {

@@ -3,8 +3,8 @@ syntax = "proto3";
 package cura.plugins.v1;
 
 import "google/protobuf/empty.proto";
-import "mesh.proto";
-import "slot_id.proto";
+import "cura/plugins/v1/mesh.proto";
+import "cura/plugins/v1/slot_id.proto";
 
 service CuraService {
   rpc EnginePlugins(EnginePluginsCuraService) returns (google.protobuf.Empty) {}
@@ -12,7 +12,7 @@ service CuraService {
 }
 
 message EnginePluginInformation {
-  SlotID id = 1;
+  cura.plugins.v1.SlotID id = 1;
   optional string address = 2;
   optional uint32 port = 3;
 }
@@ -31,7 +31,7 @@ message EnginePluginsCuraService {
 message Object {
   int64 id = 1;
   string name = 2;
-  Mesh mesh = 3;
+  cura.plugins.v1.Mesh mesh = 3;
   map<string, bytes> settings = 4;
   optional bytes vertices = 5; // TODO: remove once using the new Mesh message
   optional bytes normals = 6; // TODO: remove once using the new Mesh message

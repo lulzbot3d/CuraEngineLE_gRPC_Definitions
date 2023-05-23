@@ -1,7 +1,8 @@
 syntax = "proto3";
 
-package cura.plugins.v1;
-import "polygons.proto";
+package cura.plugins.slots.simplify.v1;
+
+import "cura/plugins/v1/polygons.proto";
 
 service SimplifyService {
   rpc Modify(SimplifyServiceModifyRequest) returns (SimplifyServiceModifyResponse) {}
@@ -9,12 +10,12 @@ service SimplifyService {
 
 message SimplifyServiceModifyRequest {
   string slot_version_range = 1;
-  Polygons polygons = 2;
+  cura.plugins.v1.Polygons polygons = 2;
   uint64 max_resolution = 3;
   uint64 max_deviation = 4;
   uint64 max_area_deviation = 5;
 }
 
 message SimplifyServiceModifyResponse {
-  Polygons polygons = 1;
+  cura.plugins.v1.Polygons polygons = 1;
 }

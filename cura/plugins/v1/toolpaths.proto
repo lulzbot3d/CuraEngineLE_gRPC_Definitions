@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package cura.plugins.v1;
 
-import "polygons.proto";
+import "cura/plugins/v1/polygons.proto";
 
 message TravelPath {
   repeated Point2D points = 1;
@@ -17,6 +17,6 @@ message LineJunctions {
   repeated ExtrusionJunction junctions = 1;
 }
 
-message ToolPaths {
+message Toolpaths {
   repeated LineJunctions tool_paths = 1;
 }

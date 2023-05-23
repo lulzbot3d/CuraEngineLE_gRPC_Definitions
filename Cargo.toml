@@ -22,6 +22,7 @@ tonic = "0.9.2"
 prost = "0.11.9"
 
 [build-dependencies]
+glob = "0.3.1"
 tonic-build = "0.9.2"
 
 [dev-dependencies]

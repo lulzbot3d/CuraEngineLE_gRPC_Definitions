@@ -10,7 +10,7 @@ on:
     workflow_dispatch:
     push:
         paths:
-            - '*.proto'
+            - '**/*.proto'
             - 'conanfile.py'
             - '.github/workflows/conan-package.yml'
             - '.github/workflows/requirements*.txt'

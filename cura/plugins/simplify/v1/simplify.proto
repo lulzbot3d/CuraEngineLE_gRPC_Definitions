@@ -9,11 +9,10 @@ service SimplifyService {
 }
 
 message SimplifyServiceModifyRequest {
-  string slot_version_range = 1;
-  cura.plugins.v1.Polygons polygons = 2;
-  uint64 max_resolution = 3;
-  uint64 max_deviation = 4;
-  uint64 max_area_deviation = 5;
+  cura.plugins.v1.Polygons polygons = 1;
+  uint64 max_resolution = 2;
+  uint64 max_deviation = 3;
+  uint64 max_area_deviation = 4;
 }
 
 message SimplifyServiceModifyResponse {

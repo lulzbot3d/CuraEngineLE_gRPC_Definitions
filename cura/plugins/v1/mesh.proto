@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package cura.plugins.v1;
+
+message Point3D {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
+
+message Triangle {
+  Point3D p1 = 1;
+  Point3D p2 = 2;
+  Point3D p3 = 3;
+}
+
+message Mesh {
+  repeated Triangle triangles = 2;
+}

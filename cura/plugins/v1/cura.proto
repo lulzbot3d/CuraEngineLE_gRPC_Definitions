@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package cura.plugins.v1;
+
+import "google/protobuf/empty.proto";
+import "cura/plugins/v1/mesh.proto";
+import "cura/plugins/v1/slot_id.proto";
+
+service CuraService {
+  rpc EnginePlugins(EnginePluginsCuraService) returns (google.protobuf.Empty) {}
+  rpc Slice(SliceCuraService) returns (google.protobuf.Empty) {}
+}
+
+message EnginePluginInformation {
+  cura.plugins.v1.SlotID id = 1;
+  optional string address = 2;
+  optional uint32 port = 3;
+}
+
+message SliceCuraService {
+  repeated ObjectList object_lists = 1;
+  map<string, bytes> global_settings = 2;
+  repeated Extruder extruders = 3;
+  repeated SettingExtruder limit_to_extruder = 4;
+}
+
+message EnginePluginsCuraService {
+  repeated EnginePluginInformation engine_plugins = 1;
+}
+
+message Object {
+  int64 id = 1;
+  string name = 2;
+  cura.plugins.v1.Mesh mesh = 3;
+  map<string, bytes> settings = 4;
+  optional bytes vertices = 5; // TODO: remove once using the new Mesh message
+  optional bytes normals = 6; // TODO: remove once using the new Mesh message
+  optional bytes indices = 7; // TODO: remove once using the new Mesh message
+}
+
+message ObjectList {
+  repeated Object objects = 1;
+  map<string, bytes> settings = 2;
+}
+
+message Extruder {
+  uint64 id = 1;
+  map<string, bytes> settings = 2;
+}
+
+message SettingExtruder {
+  string name = 1;
+  uint64 extruder = 2;
+}
+
+// TODO: Add error message broadcast

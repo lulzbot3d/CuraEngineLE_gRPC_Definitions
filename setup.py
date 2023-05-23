@@ -36,7 +36,7 @@ class CustomBuildCommand(build_py):
                     f"--python_out={full_out_dir}",
                     f"--grpc_python_out={full_out_dir}",
                     f"--mypy_out={full_out_dir}",
-                    proto_file,
+                    str(proto_file),
                 ]
                 subprocess.Popen(protoc_args)
                 # subprocess.check_call(protoc_args)
@@ -49,6 +49,7 @@ setup(
     author_email="cura@ultimaker.com",
     packages=["CuraEngineGRPC"],
     package_dir = {'': 'autogen'},
+    package_data = {"CuraEngineGRPC": ["*.pyi"]},
     install_requires=["grpcio-tools"],
     cmdclass={
         "build_py": CustomBuildCommand,

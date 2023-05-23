@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package cura.plugins.slots.overhang_areas.v1;
+
+import "cura/plugins/v1/polygons.proto";
+
+service OverhangAreasService {
+  rpc Modify(OverhangAreasServiceModifyRequest) returns (OverhangAreasServiceModifyResponse) {}
+}
+
+message OverhangAreasServiceModifyRequest {
+}
+
+message OverhangAreasServiceModifyResponse {
+  map<uint32, cura.plugins.v1.Polygons> overhang_areas = 1;
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package cura.plugins.slots.comb.v0;
+
+import "cura/plugins/v0/polygons.proto";
+import "cura/plugins/v0/toolpaths.proto";
+
+service CombService {
+  rpc Modify(CombServiceModifyRequest) returns (CombServiceModifyResponse) {}
+}
+
+message CombServiceModifyRequest {
+  cura.plugins.v0.Point2D source = 1;
+  cura.plugins.v0.Point2D target = 2;
+  cura.plugins.v0.Toolpaths printed_tool_paths = 3;
+}
+
+message CombServiceModifyResponse {
+  cura.plugins.v0.TravelPath travel = 1;
+}

@@ -1,16 +1,16 @@
 syntax = "proto3";
 
-package cura.plugins.slots.skin.v1;
-import "cura/plugins/v1/layers.proto";
+package cura.plugins.slots.skin.v0;
+import "cura/plugins/v0/layers.proto";
 
 service SkinService {
     rpc Modify(SkinServiceModifyRequest) returns (SkinServiceModifyResponse) {}
 }
 
 message SkinServiceModifyRequest {
-    cura.plugins.v1.LayersPolygons skin_areas = 1;
+    cura.plugins.v0.LayersPolygons skin_areas = 1;
 }
 
 message SkinServiceModifyResponse {
-    cura.plugins.v1.LayersToolpaths skin = 1;
+    cura.plugins.v0.LayersToolpaths skin = 1;
 }

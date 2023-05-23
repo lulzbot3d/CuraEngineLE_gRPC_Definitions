@@ -1,17 +1,17 @@
 syntax = "proto3";
 
-package cura.plugins.slots.wall_toolpaths.v1;
+package cura.plugins.slots.wall_toolpaths.v0;
 
-import "cura/plugins/v1/layers.proto";
+import "cura/plugins/v0/layers.proto";
 
 service WallToolpathsService {
   rpc Modify(WallToolpathsServiceModifyRequest) returns (WallToolpathsServiceModifyResponse) {}
 }
 
 message WallToolpathsServiceModifyRequest {
-  cura.plugins.v1.LayersPolygons outlines = 1;
+  cura.plugins.v0.LayersPolygons outlines = 1;
 }
 
 message WallToolpathsServiceModifyResponse {
-  cura.plugins.v1.LayersToolpaths tool_paths = 1;
+  cura.plugins.v0.LayersToolpaths tool_paths = 1;
 }

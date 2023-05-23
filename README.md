@@ -23,7 +23,8 @@ The gRPC definitions are available for the following languages:
       def generate(self):
         tc = CMakeToolchain(self)
         cpp_info = self.dependencies["curaengine_grpc_definitions"].cpp_info
-        tc.variables["GRPC_PROTOS"] = ";".join([str(p) for p in Path(cpp_info.resdirs[0]).glob("*.proto")])
+        tc.variables["GRPC_IMPORT_DIRS"] = cpp_info.resdirs[0]
+        tc.variables["GRPC_PROTOS"] = ";".join([str(p).replace("\\", "/") for p in Path(cpp_info.resdirs[0]).rglob("*.proto")])
         tc.generate()
   
       ...  
@@ -35,11 +36,11 @@ The gRPC definitions are available for the following languages:
   ...
   find_package(asio-grpc REQUIRED)
   
-  asio_grpc_protobuf_generate(
-        GENERATE_GRPC GENERATE_MOCK_CODE
+asio_grpc_protobuf_generate(PROTOS "${GRPC_PROTOS}" 
+        IMPORT_DIRS ${GRPC_IMPORT_DIRS}
         OUT_VAR "ASIO_GRPC_PLUGIN_PROTO_SOURCES"
         OUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated"
-        PROTOS "${GRPC_PROTOS}"
+        GENERATE_GRPC GENERATE_MOCK_CODE)
   
   add_executable(engine_plugin_target_name ${PROTO_SRCS} ${ASIO_GRPC_PLUGIN_PROTO_SOURCES} main.cpp ...)
 

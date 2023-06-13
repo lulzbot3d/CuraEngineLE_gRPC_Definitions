@@ -2,14 +2,6 @@ syntax = "proto3";
 
 package cura.plugins.v0;
 
-import "google/protobuf/empty.proto";
-
-// TODO: Maybe split this up, other wise each client **might** get all the broadcasts
-service BroadcastService {
-  rpc Settings(BroadcastServiceSettingsRequest) returns (google.protobuf.Empty) {}
-  rpc Progress(BroadcastServiceProgressRequest) returns (google.protobuf.Empty) {}
-}
-
 message BroadcastServiceSettingsRequest {
   map<string, bytes> settings = 1;
 }

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package cura.plugins.slots.broadcast.v0;
+
+import "cura/plugins/v0/polygons.proto";
+import "cura/plugins/v0/toolpaths.proto";
+import "google/protobuf/empty.proto";
+
+message Settings {
+  map<string, bytes> settings = 1;
+}
+
+message BroadcastServiceSettingsRequest {
+  Settings global_settings = 1;
+  repeated Settings extruder_settings = 2;
+  repeated Settings object_settings = 3;
+  map<string, uint64> limit_to_extruder = 4;
+}
+
+service BroadcastService {
+  rpc BroadcastSettings(BroadcastServiceSettingsRequest) returns (google.protobuf.Empty) {}
+}

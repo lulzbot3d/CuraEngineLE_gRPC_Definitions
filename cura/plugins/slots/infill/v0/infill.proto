@@ -3,17 +3,15 @@ syntax = "proto3";
 package cura.plugins.slots.infill.v0;
 
 import "cura/plugins/v0/layers.proto";
-import "cura/plugins/v0/handshake.proto";
 
-service InfillService {
-  rpc Handshake(cura.plugins.v0.HandshakeRequest) returns (cura.plugins.v0.HandshakeResponse) {}
-  rpc Modify(InfillServiceModifyRequest) returns (InfillServiceModifyResponse) {}
+service InfillModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message InfillServiceModifyRequest {
+message CallRequest {
   cura.plugins.v0.LayersPolygons infill_areas = 1;
 }
 
-message InfillServiceModifyResponse {
+message CallResponse {
   cura.plugins.v0.LayersToolpaths tool_paths = 1;
 }

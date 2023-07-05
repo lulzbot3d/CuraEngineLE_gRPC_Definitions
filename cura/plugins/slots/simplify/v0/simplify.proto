@@ -3,20 +3,18 @@ syntax = "proto3";
 package cura.plugins.slots.simplify.v0;
 
 import "cura/plugins/v0/polygons.proto";
-import "cura/plugins/v0/handshake.proto";
 
-service SimplifyService {
-  rpc Handshake(cura.plugins.v0.HandshakeRequest) returns (cura.plugins.v0.HandshakeResponse) {}
-  rpc Modify(SimplifyServiceModifyRequest) returns (SimplifyServiceModifyResponse) {}
+service SimplifyModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message SimplifyServiceModifyRequest {
+message CallRequest {
   cura.plugins.v0.Polygons polygons = 1;
   uint64 max_resolution = 2;
   uint64 max_deviation = 3;
   uint64 max_area_deviation = 4;
 }
 
-message SimplifyServiceModifyResponse {
+message CallResponse {
   cura.plugins.v0.Polygons polygons = 1;
 }

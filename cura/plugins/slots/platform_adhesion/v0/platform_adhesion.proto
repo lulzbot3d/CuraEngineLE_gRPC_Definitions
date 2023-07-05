@@ -4,17 +4,15 @@ package cura.plugins.slots.platform_adhesion.v0;
 
 import "cura/plugins/v0/polygons.proto";
 import "cura/plugins/v0/toolpaths.proto";
-import "cura/plugins/v0/handshake.proto";
 
-service PlatformAdhesionService {
-  rpc Handshake(cura.plugins.v0.HandshakeRequest) returns (cura.plugins.v0.HandshakeResponse) {}
-  rpc Modify(PlatformAdhesionServiceModifyRequest) returns (PlatformAdhesionServiceModifyResponse) {}
+service PlatformAdhesionModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message PlatformAdhesionServiceModifyRequest {
+message CallRequest {
   map<uint32, cura.plugins.v0.Polygons> model_outlines = 1;
 }
 
-message PlatformAdhesionServiceModifyResponse {
+message CallResponse {
   map<uint32, cura.plugins.v0.Toolpaths> tool_paths = 1;
 }

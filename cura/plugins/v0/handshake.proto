@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package cura.plugins.v0;
+
+message HandshakeRequest {
+   string service_name = 1;
+   string version_range = 2;
+}
+
+message HandshakeResponse {
+   string slot_version = 1;
+   string plugin_name = 2;
+   string plugin_version = 3;
+   repeated string subscriptions = 4;
+}

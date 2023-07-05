@@ -4,8 +4,10 @@ package cura.plugins.slots.platform_adhesion.v0;
 
 import "cura/plugins/v0/polygons.proto";
 import "cura/plugins/v0/toolpaths.proto";
+import "cura/plugins/v0/handshake.proto";
 
 service PlatformAdhesionService {
+  rpc Handshake(cura.plugins.v0.HandshakeRequest) returns (cura.plugins.v0.HandshakeResponse) {}
   rpc Modify(PlatformAdhesionServiceModifyRequest) returns (PlatformAdhesionServiceModifyResponse) {}
 }
 

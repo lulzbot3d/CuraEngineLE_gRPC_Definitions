@@ -3,8 +3,10 @@ syntax = "proto3";
 package cura.plugins.slots.overhang_areas.v0;
 
 import "cura/plugins/v0/polygons.proto";
+import "cura/plugins/v0/handshake.proto";
 
 service OverhangAreasService {
+  rpc Handshake(cura.plugins.v0.HandshakeRequest) returns (cura.plugins.v0.HandshakeResponse) {}
   rpc Modify(OverhangAreasServiceModifyRequest) returns (OverhangAreasServiceModifyResponse) {}
 }
 

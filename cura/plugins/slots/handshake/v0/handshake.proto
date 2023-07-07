@@ -17,5 +17,5 @@ message CallResponse {
    string slot_version = 1;
    string plugin_name = 2;
    string plugin_version = 3;
-   repeated string subscriptions = 4;
+   repeated string broadcast_subscriptions = 4;
 }

@@ -2,12 +2,14 @@ syntax = "proto3";
 
 package cura.plugins.slots.handshake.v0;
 
+import "cura/plugins/v0/slot_id.proto";
+
 service HandshakeService {
   rpc Call(CallRequest) returns (CallResponse) {}
 }
 
 message CallRequest {
-   string service_name = 1;
+   cura.plugins.v0.SlotID slot_id = 1;
    string version_range = 2;
 }
 

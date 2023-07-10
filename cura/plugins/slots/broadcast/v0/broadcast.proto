@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package cura.plugins.slots.broadcast.v0;
 
-import "cura/plugins/v0/polygons.proto";
-import "cura/plugins/v0/toolpaths.proto";
 import "google/protobuf/empty.proto";
 
 message Settings {

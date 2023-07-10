@@ -4,14 +4,14 @@ package cura.plugins.slots.slice.v0;
 
 import "cura/plugins/v0/polygons.proto";
 
-service SliceService {
-  rpc Modify(SliceServiceModifyRequest) returns (SliceResponse) {}
+service SliceModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message SliceServiceModifyRequest {
+message CallRequest {
   map<uint32, cura.plugins.v0.PolyTreeRoot> outlines = 1;
 }
 
-message SliceResponse {
+message CallResponse {
   map<uint32, cura.plugins.v0.PolyTreeRoot> outlines = 1;
 }

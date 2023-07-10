@@ -4,14 +4,14 @@ package cura.plugins.slots.infill.v0;
 
 import "cura/plugins/v0/layers.proto";
 
-service InfillService {
-  rpc Modify(InfillServiceModifyRequest) returns (InfillServiceModifyResponse) {}
+service InfillModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message InfillServiceModifyRequest {
+message CallRequest {
   cura.plugins.v0.LayersPolygons infill_areas = 1;
 }
 
-message InfillServiceModifyResponse {
+message CallResponse {
   cura.plugins.v0.LayersToolpaths tool_paths = 1;
 }

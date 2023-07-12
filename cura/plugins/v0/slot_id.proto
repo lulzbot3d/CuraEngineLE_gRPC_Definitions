@@ -4,6 +4,8 @@ package cura.plugins.v0;
 
 enum SlotID {
   BROADCAST = 0;
-  SIMPLIFY = 1;
-  POSTPROCESS = 2;
+  SIMPLIFY_MODIFY = 10;
+  POSTPROCESS_MODIFY = 11;
+  INFILL_MODIFY = 12;
+  INFILL_GENERATE = 100;
 }

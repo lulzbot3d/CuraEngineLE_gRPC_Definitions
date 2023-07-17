@@ -4,13 +4,13 @@ package cura.plugins.slots.overhang_areas.v0;
 
 import "cura/plugins/v0/polygons.proto";
 
-service OverhangAreasService {
-  rpc Modify(OverhangAreasServiceModifyRequest) returns (OverhangAreasServiceModifyResponse) {}
+service OverhangAreasModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message OverhangAreasServiceModifyRequest {
+message CallRequest {
 }
 
-message OverhangAreasServiceModifyResponse {
+message CallResponse {
   map<uint32, cura.plugins.v0.Polygons> overhang_areas = 1;
 }

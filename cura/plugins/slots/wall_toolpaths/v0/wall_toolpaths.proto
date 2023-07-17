@@ -4,14 +4,14 @@ package cura.plugins.slots.wall_toolpaths.v0;
 
 import "cura/plugins/v0/layers.proto";
 
-service WallToolpathsService {
-  rpc Modify(WallToolpathsServiceModifyRequest) returns (WallToolpathsServiceModifyResponse) {}
+service WallToolpathsModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message WallToolpathsServiceModifyRequest {
+message CallRequest {
   cura.plugins.v0.LayersPolygons outlines = 1;
 }
 
-message WallToolpathsServiceModifyResponse {
+message CallResponse {
   cura.plugins.v0.LayersToolpaths tool_paths = 1;
 }

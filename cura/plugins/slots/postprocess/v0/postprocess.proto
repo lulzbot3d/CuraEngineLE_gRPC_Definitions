@@ -2,14 +2,14 @@ syntax = "proto3";
 
 package cura.plugins.slots.postprocess.v0;
 
-service PostprocessService {
-  rpc Modify(PostprocessServiceModifyRequest) returns (PostprocessServiceModifyResponse) {}
+service PostprocessModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
 }
 
-message PostprocessServiceModifyRequest {
+message CallRequest {
   string gcode_word = 1;
 }
 
-message PostprocessServiceModifyResponse {
+message CallResponse {
   string gcode_word = 1;
 }

@@ -4,7 +4,7 @@ package cura.plugins.slots.infill.v0;
 
 import "cura/plugins/v0/layers.proto";
 
-service InfillModifyService {
+service InfillGenerateService {
   rpc Call(CallRequest) returns (CallResponse) {}
 }
 

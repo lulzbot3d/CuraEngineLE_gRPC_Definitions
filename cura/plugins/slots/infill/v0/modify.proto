@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package cura.plugins.slots.infill.v0;
+
+import "cura/plugins/v0/layers.proto";
+
+service InfillModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
+}
+
+message CallRequest {
+  cura.plugins.v0.LayersToolpaths tool_paths = 1;
+}
+
+message CallResponse {
+  cura.plugins.v0.LayersToolpaths tool_paths = 1;
+}

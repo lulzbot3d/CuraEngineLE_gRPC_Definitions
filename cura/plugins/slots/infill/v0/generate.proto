@@ -11,6 +11,7 @@ service InfillGenerateService {
 
 message CallRequest {
   cura.plugins.v0.Polygons infill_areas = 1;
+  string pattern = 2;
 }
 
 message CallResponse {

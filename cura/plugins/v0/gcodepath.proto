@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package cura.plugins.v0;
+
+import "cura/plugins/v0/polygons.proto";
+import "cura/plugins/v0/printfeatures.proto";
+
+message SpeedDerivatives {
+  double velocity = 1;
+  double acceleration = 2;
+  double jerk = 3;
+}
+
+message Estimates {
+  double extrude_time = 1;
+  double extrude_time_at_slowest_path_speed = 2;
+  double extrude_time_at_minimum_speed = 3;
+  double unretracted_travel_time = 4;
+  double retracted_travel_time = 5;
+  double material = 6;
+}
+
+message GCodePathConfig {
+  cura.plugins.v0.PrintFeature feature = 1;
+  SpeedDerivatives speed_derivatives = 2;
+  int64 line_width = 3;
+  int64 layer_thickness = 4;
+  double flow_ratio = 5;
+  double extrusion_mm3_per_mm = 6;
+  double fan_speed = 7;
+  bool is_bridge_path = 8;
+}
+
+message GCodePath {
+  OpenPath path = 1;
+  GCodePathConfig config = 2;
+  Estimates estimates = 3;
+}

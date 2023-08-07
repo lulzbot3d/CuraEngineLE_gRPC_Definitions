@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package cura.plugins.slots.gcode_paths.v0.modify;
+
+import "cura/plugins/v0/gcodepath.proto";
+
+service GCodePathsModifyService {
+  rpc Call(CallRequest) returns (CallResponse) {}
+}
+
+message CallRequest {
+  repeated cura.plugins.v0.GCodePath gcode_paths = 1;
+  int64 extruder_nr = 2;
+  int64 layer_nr = 3;
+}
+
+message CallResponse {
+  repeated cura.plugins.v0.GCodePath gcode_paths = 1;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package cura.plugins.slots.infill.v0.generate;
+
+import "cura/plugins/v0/polygons.proto";
+import "cura/plugins/v0/toolpaths.proto";
+
+service InfillGenerateService {
+  rpc Call(CallRequest) returns (CallResponse) {}
+}
+
+message Settings {
+  map<string, bytes> settings = 1;
+}
+
+message CallRequest {
+  cura.plugins.v0.Polygons infill_areas = 1;
+  string pattern = 2;
+  Settings settings = 3;
+}
+
+message CallResponse {
+  cura.plugins.v0.Toolpaths tool_paths = 1;
+  cura.plugins.v0.Polygons polygons = 2;
+  cura.plugins.v0.OpenPaths poly_lines = 3;
+}

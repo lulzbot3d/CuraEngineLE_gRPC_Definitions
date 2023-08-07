@@ -11,6 +11,10 @@ message OpenPath {
   repeated Point2D path = 1;
 }
 
+message OpenPaths {
+  repeated OpenPath paths = 1;
+}
+
 message ClosedPath {
   repeated Point2D path = 1;
 }

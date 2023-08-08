@@ -13,11 +13,9 @@ message SpeedDerivatives {
 
 message Estimates {
   double extrude_time = 1;
-  double extrude_time_at_slowest_path_speed = 2;
-  double extrude_time_at_minimum_speed = 3;
-  double unretracted_travel_time = 4;
-  double retracted_travel_time = 5;
-  double material = 6;
+  double unretracted_travel_time = 2;
+  double retracted_travel_time = 3;
+  double material = 4;
 }
 
 message GCodePathConfig {

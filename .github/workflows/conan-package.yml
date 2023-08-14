@@ -21,7 +21,7 @@ jobs:
     with:
       project_name: curaengine_grpc_definitions
 
-  conan-package-export-linux:
+  conan-package-export:
     needs: [ conan-recipe-version ]
     uses: ultimaker/cura/.github/workflows/conan-recipe-export.yml@main
     with:

@@ -27,8 +27,8 @@ jobs:
     with:
       recipe_id_full: ${{ needs.conan-recipe-version.outputs.recipe_id_full }}
       recipe_id_latest: ${{ needs.conan-recipe-version.outputs.recipe_id_latest }}
-      runs_on: 'ubuntu-20.04'
-      python_version: '3.11.x'
+      runs_on: 'ubuntu-22.04'
+      python_version: '3.10.x'
       conan_config_branch: 'master'
       conan_logging_level: 'info'
       conan_export_binaries: true

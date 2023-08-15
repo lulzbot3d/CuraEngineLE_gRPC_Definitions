@@ -11,26 +11,17 @@ message SpeedDerivatives {
   double jerk = 3;
 }
 
-message Estimates {
-  double extrude_time = 1;
-  double unretracted_travel_time = 2;
-  double retracted_travel_time = 3;
-  double material = 4;
-}
-
 message GCodePathConfig {
   cura.plugins.v0.PrintFeature feature = 1;
   SpeedDerivatives speed_derivatives = 2;
   int64 line_width = 3;
   int64 layer_thickness = 4;
   double flow_ratio = 5;
-  double extrusion_mm3_per_mm = 6;
-  double fan_speed = 7;
-  bool is_bridge_path = 8;
+  double fan_speed = 6;
+  bool is_bridge_path = 7;
 }
 
 message GCodePath {
   OpenPath path = 1;
-  GCodePathConfig config = 2;
-  Estimates estimates = 3;
+  GCodePathConfig config = 2; 
 }

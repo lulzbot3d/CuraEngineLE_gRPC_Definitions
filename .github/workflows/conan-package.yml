@@ -12,6 +12,7 @@ on:
     paths:
       - '**/*.proto'
       - 'conanfile.py'
+      - 'CMakelists.txt'
       - '.github/workflows/conan-package.yml'
       - '.github/workflows/requirements*.txt'
 

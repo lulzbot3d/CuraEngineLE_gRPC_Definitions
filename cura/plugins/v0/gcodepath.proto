@@ -21,7 +21,19 @@ message GCodePathConfig {
   bool is_bridge_path = 7;
 }
 
+enum SpaceFillType {
+  NONE = 0;
+  POLYGONS = 1;
+  POLY_LINES = 2;
+  LINES = 3;
+}
+
 message GCodePath {
   OpenPath path = 1;
   GCodePathConfig config = 2; 
+  SpaceFillType space_fill_type = 3;
+  double flow = 4;
+  double width_factor = 5;
+  bool spiralize = 6;
+  double speed_factor = 7;
 }

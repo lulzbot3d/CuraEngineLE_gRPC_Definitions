@@ -36,5 +36,5 @@ message GCodePath {
   double width_factor = 5;
   bool spiralize = 6;
   double speed_factor = 7;
-  int64 mesh_id = 8;
+  string mesh_name = 8;
 }

@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package cura.plugins.v0;
+
+import "cura/plugins/v0/polygons.proto";
+import "cura/plugins/v0/printfeatures.proto";
+
+message SpeedDerivatives {
+  double velocity = 1;
+  double acceleration = 2;
+  double jerk = 3;
+}
+
+enum SpaceFillType {
+  NONE = 0;
+  POLYGONS = 1;
+  POLY_LINES = 2;
+  LINES = 3;
+}
+
+message GCodePath {
+  OpenPath path = 1;
+  SpaceFillType space_fill_type = 2;
+  double flow = 3;
+  double width_factor = 4;
+  bool spiralize = 5;
+  double speed_factor = 6;
+  double speed_back_pressure_factor = 7;
+  bool retract = 8;
+  bool unretract_before_last_travel_move = 9;
+  bool perform_z_hop = 10;
+  bool skip_agressive_merge_hint = 11;
+  bool done = 12;
+  double fan_speed = 13;
+  string mesh_name = 14;
+  cura.plugins.v0.PrintFeature feature = 15;
+  SpeedDerivatives speed_derivatives = 16;
+  int64 line_width = 17;
+  int64 layer_thickness = 18;
+  double flow_ratio = 19;
+  bool is_bridge_path = 20;
+}

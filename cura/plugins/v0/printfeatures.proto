@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package cura.plugins.v0;
+
+enum PrintFeature {
+  NONETYPE = 0;
+  OUTERWALL = 1;
+  INNERWALL = 2;
+  SKIN = 3;
+  SUPPORT = 4;
+  SKIRTBRIM = 5;
+  INFILL = 6;
+  SUPPORTINFILL = 7;
+  MOVECOMBING = 8;
+  MOVERETRACTION = 9;
+  SUPPORTINTERFACE = 10;
+  PRIMETOWER = 11;
+  NUMPRINTFEATURETYPES = 12;
+}

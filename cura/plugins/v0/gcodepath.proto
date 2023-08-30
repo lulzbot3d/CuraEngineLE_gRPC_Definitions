@@ -11,16 +11,6 @@ message SpeedDerivatives {
   double jerk = 3;
 }
 
-message GCodePathConfig {
-  cura.plugins.v0.PrintFeature feature = 1;
-  SpeedDerivatives speed_derivatives = 2;
-  int64 line_width = 3;
-  int64 layer_thickness = 4;
-  double flow_ratio = 5;
-  double fan_speed = 6;
-  bool is_bridge_path = 7;
-}
-
 enum SpaceFillType {
   NONE = 0;
   POLYGONS = 1;
@@ -30,11 +20,23 @@ enum SpaceFillType {
 
 message GCodePath {
   OpenPath path = 1;
-  GCodePathConfig config = 2; 
-  SpaceFillType space_fill_type = 3;
-  double flow = 4;
-  double width_factor = 5;
-  bool spiralize = 6;
-  double speed_factor = 7;
-  string mesh_name = 8;
+  SpaceFillType space_fill_type = 2;
+  double flow = 3;
+  double width_factor = 4;
+  bool spiralize = 5;
+  double speed_factor = 6;
+  double speed_back_pressure_factor = 7;
+  bool retract = 8;
+  bool unretract_before_last_travel_move = 9;
+  bool perform_z_hop = 10;
+  bool skip_agressive_merge_hint = 11;
+  bool done = 12;
+  double fan_speed = 13;
+  string mesh_name = 14;
+  cura.plugins.v0.PrintFeature feature = 15;
+  SpeedDerivatives speed_derivatives = 16;
+  int64 line_width = 17;
+  int64 layer_thickness = 18;
+  double flow_ratio = 19;
+  bool is_bridge_path = 20;
 }

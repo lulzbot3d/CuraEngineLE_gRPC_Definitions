@@ -20,11 +20,12 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
     license = "MIT"
     author = "UltiMaker"
     url = "https://github.com/Ultimaker/curaengine_grpc_definitions"
-    description = ""
+    description = "The gRPC definitions for CuraEngine plugins."
     topics = ("cura", "protobuf", "gcode", "grpc", "curaengine", "plugin", "3D-printing")
     exports = "LICENSE*"
     settings = "os", "compiler", "build_type", "arch"
     no_copy_source = True
+    package_type = "library"
     options = {
         "shared": [True, False],
         "fPIC": [True, False],

@@ -62,7 +62,7 @@ class CustomBuildCommand(build_py):
 
 setup(
     name = "CuraEngineGRPC",
-    version = "0.1.1",
+    version = "0.1.2",
     description = "A gRPC package using proto files with type hints",
     author = "UltiMaker",
     author_email = "cura@ultimaker.com",

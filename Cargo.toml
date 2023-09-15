@@ -1,9 +1,9 @@
 [package]
-name = "curaengine_grpc_defintions"
+name = "curaengine_grpc_definitions"
 version = "0.0.1"
 authors = ["Casper <casper.lamboo@ultimaker.com>"]
 description = "CuraEngine gRPC definitions"
-repository = "https://github.com/Ultimaker/curaengine_grpc_defintions"
+repository = "https://github.com/Ultimaker/curaengine_grpc_definitions"
 readme = "README.md"
 license = "MIT"
 edition = "2021"
@@ -11,7 +11,7 @@ build = "rs/build.rs"
 
 
 [lib]
-name="curaengine_grpc_defintions"
+name="curaengine_grpc_definitions"
 path = "rs/lib.rs"
 crate-type = ["lib"]
 

@@ -66,7 +66,7 @@ asio_grpc_protobuf_generate(PROTOS "${GRPC_PROTOS}"
   <summary>Python</summary>
 
  ```bash
- pip install git+https://github.com/Ultimaker/CuraEngine_grpc_defintions.git  
+ pip install git+https://github.com/Ultimaker/CuraEngine_grpc_definitions.git
  ```
 
 ```python
@@ -81,11 +81,11 @@ import CuraEngineGRPC.cura_pb2 as cura_pb
 
 <details>
   <summary>Rust</summary>
-  Required dependencies before the gRPC defintions can be used are: [`protoc`, `protobuf`](https://github.com/hyperium/tonic#dependencies).
+  Required dependencies before the gRPC definitions can be used are: [`protoc`, `protobuf`](https://github.com/hyperium/tonic#dependencies).
   
   Then add the following package to your `Cargo.toml`:
   ```bash
-  cargo add --git https://github.com/Ultimaker/curaengine_grpc_defintions.git
+  cargo add --git https://github.com/Ultimaker/curaengine_grpc_definitions.git
   ```
 </details>
 

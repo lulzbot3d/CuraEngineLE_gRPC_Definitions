@@ -10,13 +10,13 @@ service HandshakeService {
 
 message CallRequest {
    cura.plugins.v0.SlotID slot_id = 1;
-   string version_range = 2;
+   string version = 2;
    string plugin_name = 3;
    string plugin_version = 4;
 }
 
 message CallResponse {
-   string slot_version = 1;
+   string slot_version_range = 1;
    string plugin_name = 2;
    string plugin_version = 3;
    repeated cura.plugins.v0.SlotID broadcast_subscriptions = 4;

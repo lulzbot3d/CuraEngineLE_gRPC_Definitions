@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package cura.plugins.slots.dialect.v0.modify;
+package cura.plugins.slots.dialect.v0.generate;
 
-service DialectModifyService {
+service DialectGenerateService {
   rpc Call(CallRequest) returns (CallResponse) {}
 }
 

@@ -29,14 +29,15 @@ message GCodePath {
   bool retract = 8;
   bool unretract_before_last_travel_move = 9;
   bool perform_z_hop = 10;
-  bool skip_agressive_merge_hint = 11;
-  bool done = 12;
-  double fan_speed = 13;
-  string mesh_name = 14;
-  cura.plugins.v0.PrintFeature feature = 15;
-  SpeedDerivatives speed_derivatives = 16;
-  int64 line_width = 17;
-  int64 layer_thickness = 18;
-  double flow_ratio = 19;
-  bool is_bridge_path = 20;
+  bool perform_prime = 11;
+  bool skip_agressive_merge_hint = 12;
+  bool done = 13;
+  double fan_speed = 14;
+  string mesh_name = 15;
+  cura.plugins.v0.PrintFeature feature = 16;
+  SpeedDerivatives speed_derivatives = 17;
+  int64 line_width = 18;
+  int64 layer_thickness = 19;
+  double flow_ratio = 20;
+  bool is_bridge_path = 21;
 }

@@ -8,11 +8,11 @@ from conan.errors import ConanInvalidConfiguration
 from conan.tools.build import check_min_cppstd
 from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
 from conan.tools.env import VirtualBuildEnv
-from conan.tools.files import copy
+from conan.tools.files import copy, update_conandata
 from conan.tools.microsoft import check_min_vs, is_msvc_static_runtime, is_msvc
 from conan.tools.scm import Version
 
-required_conan_version = ">=1.56.0"
+required_conan_version = ">=1.58.0 <2.0.0"
 
 
 class CuraEngine_gRPC_DefinitionsConan(ConanFile):
@@ -35,6 +35,10 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
         "fPIC": True,
     }
 
+    def set_version(self):
+        if not self.version:
+            self.version = self.conan_data["version"]
+
     @property
     def _min_cppstd(self):
         return 20
@@ -48,6 +52,9 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
             "msvc": "192",
             "visual_studio": "17",
         }
+
+    def export(self):
+        update_conandata(self, {"version": self.version})
 
     def export_sources(self):
         copy(self, "CMakeLists.txt", self.recipe_folder, self.export_sources_folder)
@@ -92,7 +99,7 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
         self.requires("boost/1.82.0")
         self.requires("asio-grpc/2.6.0")
         self.requires("grpc/1.50.1", transitive_headers = True)
-        self.requires("openssl/1.1.1l")
+        self.requires("openssl/3.2.0")
 
     def validate(self):
         # validate the minimum cpp standard supported. For C++ projects only

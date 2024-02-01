@@ -95,7 +95,7 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
             self.cpp.build.includedirs = ["./generated"]
 
     def requirements(self):
-        self.requires("protobuf/3.21.9", transitive_headers = True)
+        self.requires("protobuf/3.21.12", transitive_headers = True)
         self.requires("boost/1.82.0")
         self.requires("asio-grpc/2.6.0")
         self.requires("grpc/1.50.1", transitive_headers = True)

@@ -1,1 +1,1 @@
-probably the line copying over the 'include' folder in the package function of the conan-file should be removed instead of adding this, but I'm running out of time today
+NOTE: Dependant packages expect an 'include' folder, but git doesn't include empty folders.

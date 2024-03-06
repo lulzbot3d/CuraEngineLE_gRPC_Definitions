@@ -162,7 +162,7 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
 
         copy(self,
              pattern = "*.h",
-             dst = os.path.join(self.package_folder, "include"),  # <- this should probably be removed?
+             # NOTE: Right now there's nothing in the include folder, but if there is, it should be copied to the package folder here. (Including it now will cause the build to fail.)
              src = os.path.join(self.build_folder, "generated"))
         copy(self,
              pattern = "LICENSE*",

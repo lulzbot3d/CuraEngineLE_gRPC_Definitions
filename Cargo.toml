@@ -1,6 +1,6 @@
 [package]
 name = "curaengine_grpc_definitions"
-version = "0.2.0-alpha.0"
+version = "0.3.0-alpha.0"
 authors = ["Casper <casper.lamboo@ultimaker.com>"]
 description = "CuraEngine gRPC definitions"
 repository = "https://github.com/Ultimaker/curaengine_grpc_definitions"

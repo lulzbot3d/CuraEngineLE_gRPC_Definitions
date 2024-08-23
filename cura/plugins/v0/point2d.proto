@@ -3,6 +3,6 @@ syntax = "proto3";
 package cura.plugins.v0;
 
 message Point2D {
-  float x = 1;
-  float y = 2;
+  sint64 x = 1;
+  sint64 y = 2;
 }

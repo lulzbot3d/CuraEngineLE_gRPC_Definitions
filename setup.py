@@ -61,11 +61,11 @@ class CustomBuildCommand(build_py):
 
 
 setup(
-    name = "CuraEngineGRPC",
-    version = "0.2.0-alpha.0",
+    name = "CuraEngineLE_GRPC",
+    version = "0.2.1",
     description = "A gRPC package using proto files with type hints",
-    author = "UltiMaker",
-    author_email = "cura@ultimaker.com",
+    author = "UltiMaker, FAME3D LLC.",
+    author_email = "it@lulzbot.com",
     packages = ["CuraEngineGRPC"],
     package_dir = {'': 'autogen'},
     package_data = {"CuraEngineGRPC": ["*.pyi"]},

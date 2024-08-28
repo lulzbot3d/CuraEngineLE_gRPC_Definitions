@@ -15,12 +15,12 @@ from conan.tools.scm import Version
 required_conan_version = ">=1.58.0 <2.0.0"
 
 
-class CuraEngine_gRPC_DefinitionsConan(ConanFile):
-    name = "curaengine_grpc_definitions"
+class CuraEngineLE_gRPC_DefinitionsConan(ConanFile):
+    name = "curaenginele_grpc_definitions"
     license = "MIT"
-    author = "UltiMaker"
-    url = "https://github.com/Ultimaker/curaengine_grpc_definitions"
-    description = "The gRPC definitions for CuraEngine plugins."
+    author = "UltiMaker, FAME3D LLC."
+    url = "https://github.com/lulzbot3d/curaenginele_grpc_definitions"
+    description = "The gRPC definitions for CuraEngineLE plugins."
     topics = ("cura", "protobuf", "gcode", "grpc", "curaengine", "plugin", "3D-printing")
     exports = "LICENSE*"
     settings = "os", "compiler", "build_type", "arch"
@@ -175,4 +175,4 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
             src = self.source_folder)
 
     def package_info(self):
-        self.cpp_info.libs = ["curaengine_grpc_definitions"]
+        self.cpp_info.libs = ["curaenginele_grpc_definitions"]

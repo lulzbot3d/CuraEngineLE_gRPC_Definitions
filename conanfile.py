@@ -75,8 +75,8 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
         self.options["grpc"].node_plugin = False
         self.options["grpc"].objective_c_plugin = False
         self.options["grpc"].php_plugin = False
-        self.options["grpc"].python_plugin = False
         self.options["grpc"].ruby_plugin = False
+        self.options["grpc"].python_plugin = False
         self.options["asio-grpc"].local_allocator = "recycling_allocator"
 
     def layout(self):

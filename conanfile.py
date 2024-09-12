@@ -13,7 +13,7 @@ from conan.tools.files import copy, update_conandata
 from conan.tools.microsoft import check_min_vs, is_msvc_static_runtime, is_msvc
 from conan.tools.scm import Version, Git
 
-required_conan_version = ">=1.58.0"
+required_conan_version = ">=2.7.0"
 
 
 class CuraEngine_gRPC_DefinitionsConan(ConanFile):

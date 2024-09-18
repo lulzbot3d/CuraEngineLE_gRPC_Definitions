@@ -40,4 +40,6 @@ message GCodePath {
   int64 layer_thickness = 19;
   double flow_ratio = 20;
   bool is_bridge_path = 21;
+  int64 z_offset = 22;
+  bool retract_for_nozzle_switch = 23;
 }

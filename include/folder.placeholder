@@ -1,0 +1,1 @@
+NOTE: Dependant packages expect an 'include' folder, but git doesn't include empty folders.

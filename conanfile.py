@@ -67,17 +67,8 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
             del self.options.fPIC
 
     def configure(self):
-        self.options["boost"].header_only = True
-
         if self.options.shared:
             self.options.rm_safe("fPIC")
-        self.options["grpc"].csharp_plugin = False
-        self.options["grpc"].node_plugin = False
-        self.options["grpc"].objective_c_plugin = False
-        self.options["grpc"].php_plugin = False
-        self.options["grpc"].ruby_plugin = False
-        self.options["grpc"].python_plugin = False
-        self.options["asio-grpc"].local_allocator = "recycling_allocator"
 
     def layout(self):
         cmake_layout(self)
@@ -98,9 +89,7 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
 
     def requirements(self):
         self.requires("protobuf/3.21.12", transitive_headers = True)
-        self.requires("boost/1.83.0")
         self.requires("asio-grpc/2.9.2")
-        self.requires("grpc/1.54.3", transitive_headers = True)
         self.requires("openssl/3.2.1")
 
     def validate(self):

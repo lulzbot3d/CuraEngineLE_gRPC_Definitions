@@ -2,14 +2,14 @@ syntax = "proto3";
 
 package cura.plugins.v0;
 
-import "cura/plugins/v0/polygons.proto";
+import "cura/plugins/v0/point3d.proto";
 
 message TravelPath {
-  repeated Point2D points = 1;
+  repeated Point3D points = 1;
 }
 
 message ExtrusionJunction {
-  Point2D point = 1;
+  Point3D point = 1;
   uint32 width = 2;
 }
 

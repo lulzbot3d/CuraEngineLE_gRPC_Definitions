@@ -114,7 +114,7 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
         if is_msvc(self):
             tc.variables["USE_MSVC_RUNTIME_LIBRARY_DLL"] = not is_msvc_static_runtime(self)
         tc.cache_variables["CMAKE_POLICY_DEFAULT_CMP0077"] = "NEW"
-        tc.variables["GRPC_PROTOS"] = ";".join([str(p).replace("\\", "/") for p in Path(self.source_path).rglob("*.proto")])
+        tc.variables["GRPC_PROTOS"] = ";".join([str(p).replace("\\", "/") for p in Path(self.source_folder).rglob("*.proto")])
         tc.generate()
 
         tc = CMakeDeps(self)

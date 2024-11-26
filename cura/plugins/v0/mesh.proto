@@ -2,11 +2,7 @@ syntax = "proto3";
 
 package cura.plugins.v0;
 
-message Point3D {
-  float x = 1;
-  float y = 2;
-  float z = 3;
-}
+import "cura/plugins/v0/point3d.proto";
 
 message Triangle {
   Point3D p1 = 1;

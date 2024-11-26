@@ -1,7 +1,7 @@
 # gRPC Definitions for CuraEngineLE
 
-[![Conan Package](https://img.shields.io/github/actions/workflow/status/lulzbot3d/CuraEngineLE_grpc_definitions/conan-package.yml?style=for-the-badge&logo=conan)](https://github.com/lulzbot3d/CuraEngineLE_grpc_definitions/actions/workflows/conan-package.yml)
-[![License](https://img.shields.io/badge/License-MIT-750014.svg?style=for-the-badge)](LICENSE)
+[![Conan Package](https://img.shields.io/github/actions/workflow/status/lulzbot3d/CuraEngineLE_grpc_definitions/conan-package.yml?style=for-the-badge&logoColor=white&logo=conan)](https://github.com/lulzbot3d/CuraEngineLE_grpc_definitions/actions/workflows/conan-package.yml)
+[![License](https://img.shields.io/badge/License-MIT-750014.svg?style=for-the-badge&logoColor=white&logo=opensourceinitiative)](LICENSE)
 
 This repository contains the gRPC proto definitions for CuraEngineLE. These definitions are used to generate the gRPC code for the CuraEngineLE gRPC plugin system.
 

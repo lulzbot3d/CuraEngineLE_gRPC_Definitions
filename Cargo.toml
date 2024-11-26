@@ -1,6 +1,6 @@
 [package]
 name = "curaenginele_grpc_definitions"
-version = "0.2.1"
+version = "0.3.0"
 authors = ["Casper <casper.lamboo@ultimaker.com>"]
 description = "CuraEngineLE gRPC definitions"
 repository = "https://github.com/lulzbot3d/CuraEngineLE_grpc_definitions"

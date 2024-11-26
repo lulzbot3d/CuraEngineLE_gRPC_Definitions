@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package cura.plugins.v0;
+
+message Point2D {
+  sint64 x = 1;
+  sint64 y = 2;
+}

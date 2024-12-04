@@ -1,5 +1,6 @@
-#  Copyright (c) 2023 UltiMaker
+#  Copyright (c) 2024 UltiMaker
 #  curaengine_grpc_definitions is released under the terms of the MIT
+
 import os
 from pathlib import Path
 
@@ -10,9 +11,9 @@ from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
 from conan.tools.env import VirtualBuildEnv
 from conan.tools.files import copy, update_conandata
 from conan.tools.microsoft import check_min_vs, is_msvc_static_runtime, is_msvc
-from conan.tools.scm import Version
+from conan.tools.scm import Version, Git
 
-required_conan_version = ">=1.58.0 <2.0.0"
+required_conan_version = ">=2.7.0"
 
 
 class CuraEngine_gRPC_DefinitionsConan(ConanFile):
@@ -39,6 +40,10 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
         if not self.version:
             self.version = self.conan_data["version"]
 
+    def export(self):
+        git = Git(self)
+        update_conandata(self, {"version": self.version, "commit": git.get_commit()})
+
     @property
     def _min_cppstd(self):
         return 20
@@ -53,9 +58,6 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
             "visual_studio": "17",
         }
 
-    def export(self):
-        update_conandata(self, {"version": self.version})
-
     def export_sources(self):
         copy(self, "CMakeLists.txt", self.recipe_folder, self.export_sources_folder)
         copy(self, "*.proto", self.recipe_folder, self.export_sources_folder)
@@ -65,17 +67,8 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
             del self.options.fPIC
 
     def configure(self):
-        self.options["boost"].header_only = True
-
         if self.options.shared:
             self.options.rm_safe("fPIC")
-        self.options["grpc"].csharp_plugin = False
-        self.options["grpc"].node_plugin = False
-        self.options["grpc"].objective_c_plugin = False
-        self.options["grpc"].php_plugin = False
-        self.options["grpc"].python_plugin = False
-        self.options["grpc"].ruby_plugin = False
-        self.options["asio-grpc"].local_allocator = "recycling_allocator"
 
     def layout(self):
         cmake_layout(self)
@@ -96,10 +89,7 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
 
     def requirements(self):
         self.requires("protobuf/3.21.12", transitive_headers = True)
-        self.requires("boost/1.82.0")
-        self.requires("asio-grpc/2.6.0")
-        self.requires("grpc/1.50.1", transitive_headers = True)
-        self.requires("openssl/3.2.0")
+        self.requires("asio-grpc/2.9.2")
 
     def validate(self):
         # validate the minimum cpp standard supported. For C++ projects only
@@ -119,12 +109,11 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
         self.tool_requires("protobuf/3.21.9")
 
     def generate(self):
-        # BUILD_SHARED_LIBS and POSITION_INDEPENDENT_CODE are automatically parsed when self.options.shared or self.options.fPIC exist
         tc = CMakeToolchain(self)
         if is_msvc(self):
             tc.variables["USE_MSVC_RUNTIME_LIBRARY_DLL"] = not is_msvc_static_runtime(self)
         tc.cache_variables["CMAKE_POLICY_DEFAULT_CMP0077"] = "NEW"
-        tc.variables["GRPC_PROTOS"] = ";".join([str(p).replace("\\", "/") for p in Path(self.source_path).rglob("*.proto")])
+        tc.variables["GRPC_PROTOS"] = ";".join([str(p).replace("\\", "/") for p in Path(self.source_folder).rglob("*.proto")])
         tc.generate()
 
         tc = CMakeDeps(self)

@@ -1,7 +1,9 @@
 # gRPC Definitions for CuraEngineLE
 
-[![Conan Package](https://img.shields.io/github/actions/workflow/status/lulzbot3d/CuraEngineLE_grpc_definitions/conan-package.yml?style=for-the-badge&logoColor=white&logo=conan)](https://github.com/lulzbot3d/CuraEngineLE_grpc_definitions/actions/workflows/conan-package.yml)
-[![License](https://img.shields.io/badge/License-MIT-750014.svg?style=for-the-badge&logoColor=white&logo=opensourceinitiative)](LICENSE)
+[![Conan Badge]][Conan]
+
+[![Size Badge]][Size]
+[![License Badge]][License]
 
 This repository contains the gRPC proto definitions for CuraEngineLE. These definitions are used to generate the gRPC code for the CuraEngineLE gRPC plugin system.
 
@@ -67,7 +69,7 @@ conan install . --build=missing --update
 ### Python
 
  ```bash
- pip install git+https://github.com/lulzbot3d/CuraEngineLE_grpc_definitions.git
+ pip install git+https://github.com/lulzbot3d/CuraEngineLE_gRPC_Definitions.git
  ```
 
 ```python
@@ -86,5 +88,15 @@ Required dependencies before the gRPC definitions can be used are: [`protoc`, `p
 Then add the following package to your `Cargo.toml`:
 
 ```bash
-cargo add --git https://github.com/lulzbot3d/CuraEngineLE_grpc_definitions.git
+cargo add --git https://github.com/lulzbot3d/CuraEngineLE_gRPC_Definitions.git
 ```
+
+<!----------------------------------------------------------------------------------------------------------------->
+
+[Conan Badge]: https://img.shields.io/github/actions/workflow/status/lulzbot3d/CuraEngineLE_gRPC_Definitions/conan-package.yml?style=for-the-badge&logoColor=white&logo=Conan&label=Conan%20Package
+[Size Badge]: https://img.shields.io/github/repo-size/lulzbot3d/CuraEngineLE_gRPC_Definitions?style=for-the-badge&logoColor=white&logo=GoogleAnalytics
+[License Badge]: https://img.shields.io/github/license/lulzbot3d/CuraEngineLE_gRPC_Definitions?style=for-the-badge&logoColor=white&logo=OpenSourceInitiative
+
+[Conan]: https://github.com/lulzbot3d/CuraEngineLE_gRPC_Definitions/actions/workflows/conan-package.yml
+[Size]: https://github.com/lulzbot3d/CuraEngineLE_gRPC_Definitions
+[License]: LICENSE

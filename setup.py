@@ -61,7 +61,7 @@ class CustomBuildCommand(build_py):
 
 
 setup(
-    name = "CuraEngineLE_GRPC",
+    name = "CuraEngineGRPC",
     version = "0.2.1",
     description = "A gRPC package using proto files with type hints",
     author = "UltiMaker, FAME3D LLC.",

@@ -16,7 +16,7 @@ required_conan_version = ">=1.58.0 <2.0.0"
 
 
 class CuraEngineLE_gRPC_DefinitionsConan(ConanFile):
-    name = "curaenginele_grpc_definitions"
+    name = "curaengine_grpc_definitions"
     license = "MIT"
     author = "UltiMaker, FAME3D LLC."
     url = "https://github.com/lulzbot3d/curaenginele_grpc_definitions"
@@ -175,4 +175,4 @@ class CuraEngineLE_gRPC_DefinitionsConan(ConanFile):
             src = self.source_folder)
 
     def package_info(self):
-        self.cpp_info.libs = ["curaenginele_grpc_definitions"]
+        self.cpp_info.libs = ["curaengine_grpc_definitions"]

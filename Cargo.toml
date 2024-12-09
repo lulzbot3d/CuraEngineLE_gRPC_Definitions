@@ -1,5 +1,5 @@
 [package]
-name = "curaenginele_grpc_definitions"
+name = "curaengine_grpc_definitions"
 version = "0.3.0"
 authors = ["Casper <casper.lamboo@ultimaker.com>"]
 description = "CuraEngineLE gRPC definitions"
@@ -11,7 +11,7 @@ build = "rs/build.rs"
 
 
 [lib]
-name="curaenginele_grpc_definitions"
+name="curaengine_grpc_definitions"
 path = "rs/lib.rs"
 crate-type = ["lib"]
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project(curaenginele_grpc_definitions)
+project(curaengine_grpc_definitions)
 
 find_package(Protobuf REQUIRED)
 find_package(asio-grpc REQUIRED)

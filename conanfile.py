@@ -89,7 +89,8 @@ class CuraEngineLE_gRPC_DefinitionsConan(ConanFile):
 
     def requirements(self):
         self.requires("protobuf/3.21.12", transitive_headers = True)
-        self.requires("asio-grpc/2.9.2")
+        self.requires("asio-grpc/2.9.2", transitive_headers = True)
+        self.requires("grpc/1.54.3", override = True)
 
     def validate(self):
         # validate the minimum cpp standard supported. For C++ projects only
@@ -106,7 +107,7 @@ class CuraEngineLE_gRPC_DefinitionsConan(ConanFile):
             raise ConanInvalidConfiguration(f"{self.ref} can not be built as shared on Visual Studio and msvc.")
 
     def build_requirements(self):
-        self.tool_requires("protobuf/3.21.9")
+        self.tool_requires("protobuf/3.21.12")
 
     def generate(self):
         tc = CMakeToolchain(self)

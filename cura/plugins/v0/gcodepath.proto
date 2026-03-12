@@ -42,4 +42,5 @@ message GCodePath {
   bool is_bridge_path = 21;
   int64 z_offset = 22;
   bool retract_for_nozzle_switch = 23;
+  optional double temperature = 24;
 }

@@ -89,7 +89,7 @@ class CuraEngine_gRPC_DefinitionsConan(ConanFile):
 
     def requirements(self):
         self.requires("protobuf/3.21.12", transitive_headers = True)
-        self.requires("asio-grpc/2.9.2#a44093413738811a2159b761c1bf1039", transitive_headers = True)
+        self.requires("asio-grpc/2.9.2#09f63ea2cd9edcef9c173a5a57deb045", transitive_headers = True)
         self.requires("grpc/1.54.3", override = True)
 
     def validate(self):
